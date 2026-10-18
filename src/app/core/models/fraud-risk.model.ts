@@ -1,7 +1,14 @@
 export type FraudDecision = 'APPROVED' | 'SUSPICIOUS' | 'BLOCKED';
 
 export interface AppliedRule {
-  ruleCode: 'BLACKLIST_CHECK' | 'HIGH_AMOUNT' | 'NIGHT_WINDOW' | 'VELOCITY_BURST';
+  ruleCode: 
+    | 'BLACKLIST_CHECK' 
+    | 'HIGH_AMOUNT' 
+    | 'NIGHT_WINDOW' 
+    | 'VELOCITY_BURST' 
+    | 'IMPOSSIBLE_TRAVEL' 
+    | 'BEHAVIORAL_ANOMALY' 
+    | 'SMURFING_STRUCTURING';
   name: string;
   points: number;
   description: string;
@@ -17,6 +24,9 @@ export interface FraudAnalysisRequest {
   ipAddress: string;
   deviceFingerprint: string;
   customerEmail: string;
+  location?: string;
+  latitude?: number;
+  longitude?: number;
   timestamp?: string;
 }
 

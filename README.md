@@ -32,7 +32,8 @@ flowchart TD
 
     subgraph JavaService["Motor Antifraude (Java 21 Spring Boot 3)"]
         REST["FraudController (X-API-KEY)"]
-        RULE["Rule Engine Pipeline (Blacklist/High Amount/Night Window)"]
+        RULE["Esteira Determinística com 7 Regras<br/>(Haversine, Z-Score, Smurfing, Blacklist)"]
+        CACHE["Redis Lua Script + Resilience4j"]
         OUTBOX["Transactional Outbox (outbox_events)"]
         WORKER2["OutboxPublisherJob<br/>(@Scheduled Poller)"]
         RMQ["RabbitMQ (fraud.exchange)"]
@@ -44,7 +45,8 @@ flowchart TD
     CTRL --> DAPPER
 
     A -->|POST /api/v1/fraud-analyses| REST
-    REST --> RULE
+    WORKER1 -.->|Avaliação de Risco Transacional| REST
+    REST --> RULE --> CACHE
     RULE --> OUTBOX --> WORKER2 --> RMQ
 
     A <-->|PostMessage / Off-Main-Thread| W
