@@ -91,11 +91,11 @@ export class FraudRiskService {
 
     // 1. Blacklist Check
     if (cleanCpf.startsWith('987') || cleanCpf.endsWith('00') || req.ipAddress.startsWith('198.51')) {
-      score += 55;
+      score += 80;
       appliedRules.push({
         ruleCode: 'BLACKLIST_CHECK',
         name: 'Registro em Base Restritiva Antifraude',
-        points: 55,
+        points: 80,
         description: 'Documento CPF ou IP constam em histórico de chargeback e estorno forçado',
         severity: 'CRITICAL'
       });

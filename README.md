@@ -1,15 +1,21 @@
 # 🛡️ FinRisk Operations Hub — Portal Corporativo de Pedidos & Antifraude
 
+[![CI / Quality Gate](https://github.com/FelipeGardenghiDev/finrisk-operations-hub/actions/workflows/ci.yml/badge.svg)](https://github.com/FelipeGardenghiDev/finrisk-operations-hub/actions)
 [![Angular](https://img.shields.io/badge/Angular-19%20%2F%20Signals-dd0031?logo=angular&logoColor=white)](https://angular.dev/)
 [![TypeScript](https://img.shields.io/badge/TypeScript-5.9-3178C6?logo=typescript&logoColor=white)](https://www.typescriptlang.org/)
-[![Tailwind CSS](https://img.shields.io/badge/Tailwind-v4-38B2AC?logo=tailwindcss&logoColor=white)](https://tailwindcss.com/)
-[![Web Worker API](https://img.shields.io/badge/Web%20Worker-Multi--Threading-green)](https://developer.mozilla.org/en-US/docs/Web/API/Web_Workers_API)
+[![Vitest Tests](https://img.shields.io/badge/Tests-24%20Passing%20(Vitest)-brightgreen?logo=vitest&logoColor=white)](https://vitest.dev/)
+[![Docker Multi-Stage](https://img.shields.io/badge/Docker-Multi--Stage%20(Nginx%20Alpine)-2496ED?logo=docker&logoColor=white)](Dockerfile)
+[![Architecture: ADRs](https://img.shields.io/badge/Architecture-5%20Formal%20ADRs-blueviolet)](docs/ARCHITECTURE.md)
+[![Web Worker API](https://img.shields.io/badge/Web%20Worker-Multi--Threading%20(60FPS)-green)](https://developer.mozilla.org/en-US/docs/Web/API/Web_Workers_API)
 [![Vercel Ready](https://img.shields.io/badge/Deploy-Vercel%20SPA-black?logo=vercel)](https://vercel.com/)
 [![License: MIT](https://img.shields.io/badge/Licen%C3%A7a-MIT-yellow.svg)](LICENSE)
 
-Portal Web Corporativo desenvolvido em **Angular 19** que atua como o **Cockpit de Operações e Gestão de Risco** unificando dois microsserviços de alto nível:
-1. **[order-processing-api](https://github.com/FelipeGardenghiDev/order-processing-api)**: Microsserviço corporativo em **.NET 8 (C# 12)** com Clean Architecture, CQRS (EF Core + Dapper) e canais assíncronos.
-2. **[fraud-detection-api](https://github.com/FelipeGardenghiDev/fraud-detection-api)**: Motor de risco e prevenção a fraudes em tempo real em **Java 21 e Spring Boot 3** com Transactional Outbox Pattern e RabbitMQ.
+Portal Web Corporativo desenvolvido em **Angular 19** que atua como o **Cockpit de Operações e Gestão de Risco Staff-Grade**, unificando dois microsserviços de alto nível:
+1. **[order-processing-api](https://github.com/FelipeGardenghiDev/order-processing-api)**: Microsserviço corporativo em **.NET 8 (C# 12)** com Clean Architecture, CQRS (EF Core + Dapper), canais assíncronos e 5 ADRs.
+2. **[fraud-detection-api](https://github.com/FelipeGardenghiDev/fraud-detection-api)**: Motor de risco e prevenção a fraudes em tempo real em **Java 21 e Spring Boot 3** com Transactional Outbox Pattern, RabbitMQ e 5 ADRs.
+
+> 📖 **Documentação Arquitetural Formal**: Consulte o documento [docs/ARCHITECTURE.md](docs/ARCHITECTURE.md) contendo os 5 Architecture Decision Records (ADRs) detalhando Signals, Web Workers, Estratégia de Duplo-Modo, Orquestração Poliglota e Cache Nginx.
+
 
 ---
 
